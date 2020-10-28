@@ -8,6 +8,7 @@ import SideNarBar from "./SideNavBar";
 import { ChatHelperContext } from "../context/ChatHelper";
 import Chat from "./Chat";
 import { MessageContextProvider } from "../context/MessageContext";
+import { postBaseUrl } from "./urls/urls";
 
 const Container = styled.div`
   display: flex;
@@ -32,11 +33,13 @@ const QuestionsList = (props) => {
     setIsLoading(true);
     let url;
     if (props.match.path === "/" || props.match.path === "/hobby-news") {
-      url = `http://localhost:8080/post/hobby-news/${session}`;
+      url = `${postBaseUrl}/hobby-news/${session}`;
     } else {
-      url = "http://localhost:8080/post/friend-news/" + session;
+      url = `${postBaseUrl}/friend-news/${session}`;
     }
+    console.log(url);
     axios.get(url).then((res) => {
+      console.log(res.data);
       setQuestions(res.data);
       setIsLoading(false);
     });

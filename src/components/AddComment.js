@@ -3,6 +3,7 @@ import axios from "axios";
 import { UserSession } from "../context/UserSession";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
+import { commentBaseUrl } from "./urls/urls";
 
 const Comment = styled.div`
   input {
@@ -31,7 +32,7 @@ const AddComment = (props) => {
         imagePath: data.imagePath,
         userId: session,
       };
-      return axios.post(`http://localhost:8080/answer/add`, answer).then(() => setRefresh(true));
+      return axios.post(`${commentBaseUrl}/add`, answer).then(() => setRefresh(true));
     } else alert("Please fill the description field!");
   };
 

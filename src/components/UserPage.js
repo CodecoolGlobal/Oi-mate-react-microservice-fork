@@ -7,6 +7,7 @@ import UserPost from "./UserPost";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import PersonAddDisabledIcon from "@material-ui/icons/PersonAddDisabled";
 import SideNarBar from "./SideNavBar";
+import { userBaseUrl } from "./urls/urls";
 
 const UseData = styled.div`
   .imageContainer {
@@ -72,7 +73,7 @@ const UserPage = (props) => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://localhost:8080/user/${id}`).then((res) => {
+    axios.get(`${userBaseUrl}/${id}`).then((res) => {
       setUserName(res.data.userName);
       setProfilePicture(res.data.profilePicture);
       setFirstName(res.data.firstName);
@@ -88,7 +89,7 @@ const UserPage = (props) => {
 
   const handleFriend = (e) => {
     e.preventDefault();
-    axios.get(`http://localhost:8080/user/${id}/request-friend/${session}`).then((res) => {
+    axios.get(`${userBaseUrl}/${id}/request-friend/${session}`).then((res) => {
       setFriendIdList(res.data);
       alert("Friend request sent!");
     });
@@ -96,7 +97,7 @@ const UserPage = (props) => {
 
   const handleRemoveFriend = (e) => {
     e.preventDefault();
-    axios.get(`http://localhost:8080/user/${id}/remove-friend/${session}`).then((res) => {
+    axios.get(`${userBaseUrl}/${id}/remove-friend/${session}`).then((res) => {
       setFriendIdList(res.data);
     });
   };

@@ -6,6 +6,7 @@ import { UserSession } from "../context/UserSession";
 import EditComment from "./EditComment";
 import { Dropdown } from "react-bootstrap";
 import MoreHorizontIcon from "@material-ui/icons/MoreHoriz";
+import { commentBaseUrl } from "./urls/urls";
 
 const AnswerDiv = styled.div`
   display: flex;
@@ -50,7 +51,7 @@ const Answer = (props) => {
 
   const deleteAnswer = (e) => {
     e.preventDefault();
-    axios.get(`http://localhost:8080/answer/${answer.id}/remove`);
+    axios.get(`${commentBaseUrl}/${answer.id}/remove`);
     setAnswer(null);
     setDeleted(true);
   };

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Redirect } from "react-router";
+import { userBaseUrl } from "./urls/urls";
 
 const SearchBar = styled.div`
   input {
@@ -24,7 +25,7 @@ function SearchByUsername() {
   const checkField = (e) => {
     setRedirect(false);
     if (e.key === "Enter") {
-      axios.get(`http://localhost:8080/search/friend?username=${username}`).then((res) => {
+      axios.get(`${userBaseUrl}/search/friend?username=${username}`).then((res) => {
         setResult(res.data);
         setRedirect(true);
         setUsername("");

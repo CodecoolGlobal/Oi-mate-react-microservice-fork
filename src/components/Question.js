@@ -11,6 +11,7 @@ import { Dropdown } from "react-bootstrap";
 import EditPost from "./EditPost";
 import AddComment from "./AddComment";
 import AnswerList from "./AnswerList";
+import { postBaseUrl } from "./urls/urls";
 
 const PostDiv = styled.div`
   display: flex;
@@ -97,7 +98,7 @@ const Question = (props) => {
 
   const changeLike = (e) => {
     e.preventDefault();
-    axios.get(`http://localhost:8080/post/${question.postId}/vote/${session}`).catch((error) => console.log(error));
+    axios.get(`${postBaseUrl}/${question.postId}/vote/${session}`).catch((error) => console.log(error));
     if (!isLiked) {
       setVoteNumber(voteNumber + 1);
       setIsLiked(true);
@@ -111,7 +112,7 @@ const Question = (props) => {
 
   const deleteQuestion = (e) => {
     e.preventDefault();
-    axios.get(`http://localhost:8080/post/${question.postId}/remove`).catch((error) => console.log(error));
+    axios.get(`${postBaseUrl}/${question.postId}/remove`).catch((error) => console.log(error));
     setQuestion(null);
     setDeleted(true);
   };

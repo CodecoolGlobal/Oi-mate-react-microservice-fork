@@ -7,6 +7,7 @@ import SideNarBar from "./SideNavBar";
 import Chat from "./Chat";
 import { MessageContextProvider } from "../context/MessageContext";
 import { ChatHelperContext } from "../context/ChatHelper";
+import { postBaseUrl } from "./urls/urls";
 
 const QandAContainer = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ const QuestionAndAnswers = (props) => {
   let content = "";
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://localhost:8080/post/${props.match.params.id}/${session}`).then((res) => {
+    axios.get(`${postBaseUrl}/${props.match.params.id}/${session}`).then((res) => {
       setQuestion(res.data);
       setIsLoading(false);
     });

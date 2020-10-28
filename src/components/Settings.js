@@ -7,6 +7,7 @@ import { Button } from "react-bootstrap";
 import FormDiv from "../style/form";
 import { setLocalStorageHobbies, setLocalStorageUsername } from "../helpers/LocalStorageService";
 import SettingsIcon from "@material-ui/icons/Settings";
+import { userBaseUrl } from "./urls/urls";
 
 const SettingsDiv = styled.div`
   .post {
@@ -41,7 +42,7 @@ const Settings = (props) => {
       profilePicture: profilePicture,
       fieldsOfInterests: String(hobbies).replace(/\s/g, "").split(","),
     };
-    return axios.post(`http://localhost:8080/user/update-user/${session}`, data).then((res) => {
+    return axios.post(`${userBaseUrl}/update-user/${session}`, data).then((res) => {
       setLocalStorageHobbies(res.data.fieldsOfInterests);
       setLocalStorageUsername(res.data.username);
       setUsername(res.data.username);
@@ -74,7 +75,7 @@ const Settings = (props) => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://localhost:8080/user/${session}`).then((res) => {
+    axios.get(`${userBaseUrl}/${session}`).then((res) => {
       setLocalStorageUsername(res.data.username);
       setLocalStorageHobbies(res.data.fieldsOfInterests);
       setHobbies(res.data.fieldsOfInterests);

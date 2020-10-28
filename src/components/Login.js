@@ -4,6 +4,7 @@ import { UserSession } from "../context/UserSession";
 import FormDiv from "../style/form";
 import { setToken } from "../helpers/LocalStorageService";
 import { setLocalStorageHobbies, setLocalStorageUsername, setLocalStorageSession } from "../helpers/LocalStorageService";
+import { login } from "./urls/urls";
 
 const Login = (props) => {
   const setSession = useContext(UserSession)[0][1];
@@ -29,12 +30,12 @@ const Login = (props) => {
   };
 
   const postData = () => {
-    const login = {
+    const loginData = {
       username: username,
       password: password,
     };
     return axios
-      .post("http://localhost:8080/login", login)
+      .post(login, loginData)
       .then((res) => {
         console.log(res.data);
         setToken(res.data.token);

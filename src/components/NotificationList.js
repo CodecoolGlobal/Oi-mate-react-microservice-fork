@@ -5,6 +5,7 @@ import axios from "axios";
 import { UserSession } from "../context/UserSession";
 import Notification from "./Notification";
 import { Tooltip } from "@material-ui/core";
+import { notificationBaseUrl } from "./urls/urls";
 
 const NotificationList = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,7 +13,7 @@ const NotificationList = () => {
   const [allNotifications, setAllNotification] = useState([]);
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://localhost:8080/notification/get-all/${session}`).then((res) => {
+    axios.get(`${notificationBaseUrl}/get-all/${session}`).then((res) => {
       setAllNotification(res.data);
       setIsLoading(false);
     });

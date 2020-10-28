@@ -5,6 +5,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { Link } from "react-router-dom";
 import { UserSession } from "../context/UserSession";
 import styled from "styled-components";
+import { userBaseUrl } from "./urls/urls";
 
 const NotificationDiv = styled.div`
   .notification {
@@ -38,19 +39,19 @@ const Notification = (props) => {
 
   const handleAcceptFriendRequest = (e) => {
     e.preventDefault();
-    axios.get(`http://localhost:8080/user/${senderId}/add-friend/${session}/${notificationId}`);
+    axios.get(`${userBaseUrl}/${senderId}/add-friend/${session}/${notificationId}`);
     setDeleteSelf(true);
   };
 
   const handleDeclineFriendRequest = (e) => {
     e.preventDefault();
-    axios.get(`http://localhost:8080/user/${senderId}/decline-request/${session}/${notificationId}`);
+    axios.get(`${userBaseUrl}/${senderId}/decline-request/${session}/${notificationId}`);
     setDeleteSelf(true);
   };
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://localhost:8080/user/${props.notification.senderId}`).then((res) => {
+    axios.get(`${userBaseUrl}/${props.notification.senderId}`).then((res) => {
       setSenderPicture(res.data.profilePicture);
       setSenderUsername(res.data.username);
       setSenderId(res.data.id);

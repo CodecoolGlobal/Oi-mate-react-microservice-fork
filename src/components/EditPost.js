@@ -3,8 +3,8 @@ import axios from "axios";
 import FormDiv from "../style/form";
 import { UserSession } from "../context/UserSession";
 import { Modal } from "react-bootstrap";
-
 import { useForm } from "react-hook-form";
+import { postBaseUrl } from "./urls/urls";
 
 const EditPost = (props) => {
   const session = useContext(UserSession)[0][0];
@@ -20,7 +20,7 @@ const EditPost = (props) => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://localhost:8080/post/${id}/${session}`).then((res) => {
+    axios.get(`${postBaseUrl}/${id}/${session}`).then((res) => {
       setDescription(res.data.description);
       setImagePath(res.data.imagePath);
       setValue("description", description);
@@ -34,7 +34,7 @@ const EditPost = (props) => {
       description: data.description,
       imagePath: data.imagePath,
     };
-    return axios.post(`http://localhost:8080/post/${id}/update`, question).then((res) => {
+    return axios.post(`${postBaseUrl}/${id}/update`, question).then((res) => {
       setShow(false);
       props.history.push(`/question/${id}`);
     });

@@ -3,6 +3,7 @@ import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import styled from "styled-components";
+import { postBaseUrl } from "./urls/urls";
 
 const Post = styled.div`
   .btn {
@@ -63,7 +64,7 @@ const PostModal = (props) => {
           categories: hobbies.replace(/\s/g, "").split(","),
           imagePath: imagePath,
         };
-        return axios.post("http://localhost:8080/post/add", question).then((res) => {
+        return axios.post(`${postBaseUrl}/add`, question).then((res) => {
           props.history.push(`/question/${res.data}`);
         });
       } else alert("Please fill the tags and description field!");

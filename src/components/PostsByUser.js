@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Question from "./Question";
+import { postBaseUrl } from "./urls/urls";
 
 function PostsByUser(props) {
   const id = props.id;
@@ -10,7 +11,7 @@ function PostsByUser(props) {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://localhost:8080/post/posts-by-user-id/${id}`).then((res) => {
+    axios.get(`${postBaseUrl}/posts-by-userId/${id}`).then((res) => {
       setQuestions(res.data);
       setIsLoading(false);
     });

@@ -4,6 +4,7 @@ import FormDiv from "../style/form";
 import { UserSession } from "../context/UserSession";
 import { Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { commentBaseUrl } from "./urls/urls";
 
 const EditComment = (props) => {
   const session = useContext(UserSession)[0][0];
@@ -20,7 +21,7 @@ const EditComment = (props) => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://localhost:8080/answer/${id}/${session}`).then((res) => {
+    axios.get(`${commentBaseUrl}/${id}`).then((res) => {
       setDescription(res.data.description);
       setImagePath(res.data.imagePath);
       setValue("description", description);
@@ -34,7 +35,7 @@ const EditComment = (props) => {
       description: data.description,
       imagePath: data.imagePath,
     };
-    return axios.post(`http://localhost:8080/answer/${id}/update`, question).then((res) => {
+    return axios.post(`${commentBaseUrl}/${id}/update`, question).then((res) => {
       setShow(false);
       setRefresh(true);
     });

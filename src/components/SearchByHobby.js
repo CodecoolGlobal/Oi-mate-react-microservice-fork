@@ -3,6 +3,7 @@ import { UserSession } from "../context/UserSession";
 import styled from "styled-components";
 import axios from "axios";
 import { Redirect } from "react-router";
+import { postBaseUrl } from "./urls/urls";
 
 const SearchBar = styled.div`
   padding-right: 15px;
@@ -27,7 +28,7 @@ function SearchByHobby() {
   const checkField = (e) => {
     setRedirect(false);
     if (e.key === "Enter") {
-      axios.get(`http://localhost:8080/search/topic/${session}?topic=${hobby}`).then((res) => {
+      axios.get(`${postBaseUrl}/search/topic/${session}?topic=${hobby}`).then((res) => {
         setResult(res.data);
         setRedirect(true);
         setHobby("");

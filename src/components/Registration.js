@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FormDiv from "../style/form";
+import { registration } from "./urls/urls";
 
 const Register = (props) => {
   const [emailAddress, setEmailAddress] = useState("");
@@ -46,7 +47,7 @@ const Register = (props) => {
       fieldsOfInterests: hobbies.replace(/\s/g, "").split(","),
     };
     if (emailAddress.length > 0 && psw.length > 0) {
-      axios.post("http://localhost:8080/registration", register).then((res) => {
+      axios.post(registration, register).then((res) => {
         props.history.push("/login");
       });
     } else {
