@@ -11,15 +11,24 @@ import { MessageContextProvider } from "../context/MessageContext";
 import { postBaseUrl } from "./urls/urls";
 
 const Container = styled.div`
+.feed {
+    flex-grow: 0.4;
+  }
+  .chatSide {
+    flex: 0.2;
+  }
+  @media (max-width:960px ){
+     .chatSide{
+     flex:0;
+     } 
+     .feed{
+     flex:1;}
+    }
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  .feed {
-    flex-grow: 2;
-  }
-  .chatSide {
-    flex-grow: 1;
-  }
+  
+
 `;
 
 const QuestionsList = (props) => {

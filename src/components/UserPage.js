@@ -8,8 +8,12 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import PersonAddDisabledIcon from "@material-ui/icons/PersonAddDisabled";
 import SideNarBar from "./SideNavBar";
 import { userBaseUrl, notificationBaseUrl } from "./urls/urls";
+import Chat from "./Chat";
+import {MessageContextProvider} from "../context/MessageContext";
+import {ChatHelperContext} from "../context/ChatHelper";
 
 const UseData = styled.div`
+ 
   .imageContainer {
     margin: auto;
     margin-top: 20px;
@@ -46,18 +50,31 @@ const UseData = styled.div`
     text-align: center;
     margin-left: 20px;
   }
+ 
 `;
 
 const UserPageDiv = styled.div`
+.chatSide{
+      flex:0.3;
+    }
+    .feed {
+    flex: 0.3;
+  }
+@media (max-width:960px ){
+     
+     .chatSide{
+     flex:0;
+     } 
+     .feed{
+     flex:1;
+     }
+    }
+    
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  .feed {
-    flex-grow: 2;
-  }
-  .chatSide {
-    flex-grow: 1;
-  }
+  
+ 
 `;
 
 const UserPage = (props) => {
@@ -67,6 +84,7 @@ const UserPage = (props) => {
   const [lastName, setLastName] = useState("");
   const [profilePicture, setProfilePicture] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [showChat, setShowChat] = useContext(ChatHelperContext);
   const [friendIdList, setFriendIdList] = useState([]);
   const session = useContext(UserSession)[0][0];
   let content = "";
@@ -133,7 +151,11 @@ const UserPage = (props) => {
           <hr />
           <UserPost id={id} history={props.history} />
         </UseData>
-        <div className="chatSide"></div>
+        <div className="chatSide">
+          <MessageContextProvider>
+            <Chat show={showChat} setShowChat={setShowChat.bind(this)} />
+          </MessageContextProvider>
+        </div>
       </UserPageDiv>
     );
   } else content = "Loading...";

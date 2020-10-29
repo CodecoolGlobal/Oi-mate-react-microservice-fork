@@ -43,6 +43,7 @@ const PostDiv = styled.div`
   .postFooter {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 20px;
     width: 100%;
     position: relative;
@@ -82,6 +83,9 @@ const PostDiv = styled.div`
 
   hr {
     border-top: 1px solid white;
+  }
+  .edit-menu-item{
+    color:white;
   }
 `;
 
@@ -162,9 +166,9 @@ const Question = (props) => {
               <Dropdown.Toggle id="dropdownBtn">
                 <MoreHorizontIcon />
               </Dropdown.Toggle>
-              <Dropdown.Menu className="btn">
-                <Dropdown.Item onClick={deleteQuestion}>Delete</Dropdown.Item>
-                <Dropdown.Item onClick={() => setShowPostModal(true)}>Edit</Dropdown.Item>
+              <Dropdown.Menu className="edit-menu">
+                <Dropdown.Item className="edit-menu-item" onClick={deleteQuestion}>Delete</Dropdown.Item>
+                <Dropdown.Item className="edit-menu-item" onClick={() => setShowPostModal(true)}>Edit</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           ) : (

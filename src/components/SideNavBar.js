@@ -9,7 +9,7 @@ import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 const SideNavBarDiv = styled.div`
   min-width: 170px;
   margin-left: -40px;
-  flex-grow: 1;
+  flex: 0.3;
   li p {
     display: inline-flex;
     margin: 10px;
@@ -19,6 +19,10 @@ const SideNavBarDiv = styled.div`
     padding-top: 20px;
     padding-bottom: 20px;
   }
+  @media (max-width:960px ){
+    
+        display:none;
+    }
 `;
 function SideNavBar() {
   const [session, setSession] = useContext(UserSession)[0];

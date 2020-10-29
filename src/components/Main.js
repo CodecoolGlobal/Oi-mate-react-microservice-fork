@@ -23,10 +23,10 @@ function Main() {
       <NavBar/>
       <Route exact path="/login" component={Login} />
       <Route exact path="/registration" component={Register} />
-      <ProtectedRoute exact path="/user/:id" component={UserPage} />
       <ProtectedRoute exact path="/settings" component={Settings} />
-      <ChatHelperProvider>
-        <ProtectedRoute exact path="/questionsBySearchResult" component={QuestionsBySearchResult} />
+        <ChatHelperProvider>
+            <ProtectedRoute exact path="/user/:id" component={UserPage} />
+            <ProtectedRoute exact path="/questionsBySearchResult" component={QuestionsBySearchResult} />
         <ProtectedRoute exact path="/question/:id" component={QuestionAndAnswer} />
         <ProtectedRoute exact path={["/", "/hobby-news", "/friend-news"]} component={QuestionsList} />
       </ChatHelperProvider>

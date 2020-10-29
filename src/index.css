@@ -172,7 +172,7 @@ svg {
   background: white;
 }
 
-@media (max-width:925px ) {
+@media (max-width:960px ) {
   .navigator-items .user ,
   .navigator-items .logout
   {
@@ -189,7 +189,7 @@ svg {
   .logo{flex: 3;}
 
 }
-@media (min-width: 925px) {
+@media (min-width: 960px) {
   .valami{
     display: none;
   }

@@ -63,7 +63,7 @@ const NavDiv = styled.div`
     flex-shrink:2;
     flex-direction: row;
   }
-  @media (max-width:925px ){
+  @media (max-width:960px ){
     .search{
         display:none;
     }
