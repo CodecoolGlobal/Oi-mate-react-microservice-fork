@@ -7,7 +7,7 @@ import UserPost from "./UserPost";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import PersonAddDisabledIcon from "@material-ui/icons/PersonAddDisabled";
 import SideNarBar from "./SideNavBar";
-import { userBaseUrl } from "./urls/urls";
+import { userBaseUrl, notificationBaseUrl } from "./urls/urls";
 
 const UseData = styled.div`
   .imageContainer {
@@ -89,7 +89,7 @@ const UserPage = (props) => {
 
   const handleFriend = (e) => {
     e.preventDefault();
-    axios.get(`${userBaseUrl}/${id}/request-friend/${session}`).then((res) => {
+    axios.get(`${notificationBaseUrl}/add-friend-request-notification/${id}/${session}`).then((res) => {
       setFriendIdList(res.data);
       alert("Friend request sent!");
     });
