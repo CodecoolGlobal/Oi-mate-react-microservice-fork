@@ -4,6 +4,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #1c1e21;
+  height: 100%;
+}
+html{
+  height: 100%;
 }
 
 .modal-content {
@@ -146,4 +150,41 @@ svg {
 }
 .profileButtons svg {
   font-size: 40px;
+}
+
+.toggle-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+.toggle-button:focus{
+  outline: none;
+}
+.toggle-button__line{
+  width: 30px;
+  height: 2px;
+  background: white;
+}
+
+@media (max-width:768px ) {
+  .navigator-items a ,
+  .navBar .dropdown svg
+  {
+    display: none;
+  }
+  .search{
+    display: none;
+  }
+  /*.navBar*/
+}
+@media (min-width: 769px) {
+  .valami{
+    display: none;
+  }
 }

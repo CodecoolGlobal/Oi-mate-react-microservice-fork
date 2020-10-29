@@ -2,6 +2,7 @@ import React from "react";
 import QuestionsList from "./QuestionsList";
 import QuestionAndAnswer from "./QuestionAndAnswers";
 import NavBar from "./NavBar";
+import {useState} from "react";
 import Login from "./Login";
 import { Route } from "react-router-dom";
 import Register from "./Registration";
@@ -13,9 +14,13 @@ import { ChatHelperProvider } from "../context/ChatHelper";
 import QuestionsBySearchResult from "./QuestionsBySearchResult";
 
 function Main() {
+    const [sideDrawerOpen, setsideDrawerOpen] = useState(false);
+
+
+
   return (
-    <div className="Main">
-      <NavBar />
+    <div className="Main" style={{height: '100%'}}>
+      <NavBar/>
       <Route exact path="/login" component={Login} />
       <Route exact path="/registration" component={Register} />
       <ProtectedRoute exact path="/user/:id" component={UserPage} />

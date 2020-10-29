@@ -49,7 +49,7 @@ const PostDiv = styled.div`
   }
   .imgContainer {
     position: relative;
-    width: 600px;
+    max-width: 600px;
     left: 50%;
     transform: translateX(-50%);
   }

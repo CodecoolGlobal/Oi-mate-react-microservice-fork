@@ -6,7 +6,6 @@ import { Redirect } from "react-router";
 import { postBaseUrl } from "./urls/urls";
 
 const SearchBar = styled.div`
-  padding-right: 15px;
   input {
     border-radius: 10px;
     padding: 5px;

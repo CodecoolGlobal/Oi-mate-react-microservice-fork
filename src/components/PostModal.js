@@ -19,6 +19,7 @@ const Post = styled.div`
     z-index: 20;
     opacity: 1;
     width: 100%;
+    min-width:120px;
   }
   .btn .textarea textarea {
     background: #333;
