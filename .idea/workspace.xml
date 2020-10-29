@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f2cba3a-1b8b-40e8-90f9-9f951b1ac32c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DrawerToggleButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DrawerToggleButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NotificationList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NotificationList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-    </list>
+    <list default="true" id="0f2cba3a-1b8b-40e8-90f9-9f951b1ac32c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +68,7 @@
       <workItem from="1599048651970" duration="202000" />
       <workItem from="1603884650756" duration="1004000" />
       <workItem from="1603889236463" duration="9967000" />
-      <workItem from="1603960182670" duration="10895000" />
+      <workItem from="1603960182670" duration="11159000" />
     </task>
     <servers />
   </component>
