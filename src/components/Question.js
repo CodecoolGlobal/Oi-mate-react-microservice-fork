@@ -121,7 +121,7 @@ const Question = (props) => {
     content = (
       <PostDiv className="postDiv" id={question.postId}>
         <div className="postHeader flexbox-item">
-          <Link to={`/user/${question.userId}`} className="linkToProfile">
+          <Link to={`/user/${user.id}`} className="linkToProfile">
             <div className="profile">
               <img src={user.profilePicture} alt="profilePicture" className="profilePicture" />
               <p className="userName">{user.username}</p>
@@ -157,7 +157,7 @@ const Question = (props) => {
               <FavoriteBorderIcon onClick={changeLike} />
             </span>
           )}
-          {session === question.userId ? (
+          {session === user.id ? (
             <Dropdown>
               <Dropdown.Toggle id="dropdownBtn">
                 <MoreHorizontIcon />

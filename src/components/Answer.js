@@ -42,10 +42,10 @@ const AnswerDiv = styled.div`
 const Answer = (props) => {
   const [answer, setAnswer] = useState(props.answer);
   const [deleted, setDeleted] = useState(false);
-  const username = props.answer.user.username;
+  const username = props.answer.userInfoView.username;
   const [showEditComment, setShowEditComment] = useState(false);
   const setRefresh = props.setRefresh;
-  const userProfilePicture = props.answer.user.profilePicture;
+  const userProfilePicture = props.answer.userInfoView.profilePicture;
   const session = useContext(UserSession)[0];
   let content = "";
 
@@ -72,7 +72,7 @@ const Answer = (props) => {
           {answer.imagePath !== "" ? <img src={answer.imagePath} alt="" className="img" /> : " "}
         </div>
         <div className="footer">
-          {parseInt(session) === answer.user.id ? (
+          {parseInt(session) === answer.userInfoView.id ? (
             <Dropdown>
               <Dropdown.Toggle id="dropdownBtn">
                 <MoreHorizontIcon />
