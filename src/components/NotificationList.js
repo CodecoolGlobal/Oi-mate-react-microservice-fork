@@ -14,6 +14,7 @@ const NotificationList = () => {
   useEffect(() => {
     setIsLoading(true);
     axios.get(`${notificationBaseUrl}/get-all/${session}`).then((res) => {
+      console.log(res.data);
       setAllNotification(res.data);
       setIsLoading(false);
     });
