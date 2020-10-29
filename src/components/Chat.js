@@ -12,16 +12,19 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const ChatDiv = styled.div`
   position: fixed;
-  bottom: -50px;
-  right: -30px;
-  width: 400px;
+  bottom: 0;
+  right: 0;
+  max-width: 400px;
   text-align: center;
-  margin: 50px;
+  margin-right: 15px;
   padding: 3, 2;
   background: #1e1c1c;
   border: 0.1px solid #4d5258;
   color: white;
   border-radius: 5px;
+  @media (max-width:1025px ){
+         max-width:250px;
+    }
   .flex {
     display: flex;
     align-items: center;
@@ -61,7 +64,7 @@ const ChatDiv = styled.div`
     background: #242222;
     .chatBox {
       border-radius: 10px;
-      width: 30em;
+      max-width: 30em;
     }
     .submit {
       font-weight: bold;

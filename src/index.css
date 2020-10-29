@@ -172,9 +172,9 @@ svg {
   background: white;
 }
 
-@media (max-width:768px ) {
-  .navigator-items a ,
-  .navBar .dropdown svg
+@media (max-width:925px ) {
+  .navigator-items .user ,
+  .navigator-items .logout
   {
     display: none;
   }
@@ -182,9 +182,20 @@ svg {
     display: none;
   }
   /*.navBar*/
+
+  .navigator-items{
+    flex: 2;
+  }
+  .logo{flex: 3;}
+
 }
-@media (min-width: 769px) {
+@media (min-width: 925px) {
   .valami{
     display: none;
   }
+}
+.dropdown-menu{
+  background: #1c1e21;
+  border: none;
+  color: white;
 }

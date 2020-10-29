@@ -35,7 +35,7 @@ const NotificationList = () => {
               return <Notification key={index} notification={notification} />;
             })
           ) : (
-            <div>There is no new notification</div>
+            <div className="no-notification">There is no new notification</div>
           )}
         </Dropdown.Menu>
       </Dropdown>

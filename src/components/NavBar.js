@@ -22,6 +22,7 @@ const NavDiv = styled.div`
   }
   .navigator-items{
     display: flex;
+    align-items:center;
     flex-direction:row;
   }
  
@@ -43,7 +44,6 @@ const NavDiv = styled.div`
     max-height:100%;
   }
   .navigator-items .link{
-    // flex-grow: 0;
     font-size: 20px;
     float: left;
     color: #f50057;
@@ -63,7 +63,7 @@ const NavDiv = styled.div`
     flex-shrink:2;
     flex-direction: row;
   }
-  @media (max-width:768px ){
+  @media (max-width:925px ){
     .search{
         display:none;
     }
@@ -90,15 +90,20 @@ const NavBar = () => {
   if (isNaN(session)) {
     content = (
       <div className="navBar">
-        <div className="logo-div">
-          <img  alt="" src={Logo} />
-        </div>
-        <Link className="link" to="/login">
-          Login
-        </Link>
-        <Link className="link" to="/registration">
-          Registration
-        </Link>
+          <div className="logo">
+              <Link to="/" className="link logoLink">
+                  <img  alt="" src={Logo} />
+              </Link>
+          </div>
+          <div className="navigator-items">
+
+              <Link className="link" to="/login">
+                  Login
+              </Link>
+              <Link className="link" to="/registration">
+                  Registration
+              </Link>
+          </div>
       </div>
     );
   } else {
@@ -114,22 +119,33 @@ const NavBar = () => {
           <SearchByUsername />
         </div>
           <div className="navigator-items">
-              <Link className="link" to={`/user/${session}`}>
-                  {username}
-              </Link>
-              <Link className="link" to="/friend-news">
-                  <Tooltip title="News by friends">
-                      <PeopleAltIcon color="secondary" fontSize="large"></PeopleAltIcon>
+              <div className="user">
+
+                  <Link className="link" to={`/user/${session}`}>
+                      {username}
+                  </Link>
+              </div>
+              <div className="news-by-friends">
+                <Link className="link" to="/friend-news">
+                    <Tooltip title="News by friends">
+                        <PeopleAltIcon color="secondary" fontSize="large"></PeopleAltIcon>
+                    </Tooltip>
+                </Link>
+              </div>
+              <div className="notification">
+                  <Tooltip title="Notifications">
+                      <NotificationList />
                   </Tooltip>
-              </Link>
-              <Tooltip title="Notifications">
-                  <NotificationList />
-              </Tooltip>
-              <Link className="link" to={""} onClick={logOut}>
-                  <Tooltip title="Logout">
-                      <PowerSettingsNewIcon color="secondary" fontSize="large" />
-                  </Tooltip>
-              </Link>
+
+              </div>
+              <div className="logout">
+
+                  <Link className="link" to={""} onClick={logOut}>
+                      <Tooltip title="Logout">
+                          <PowerSettingsNewIcon color="secondary" fontSize="large" />
+                      </Tooltip>
+                  </Link>
+              </div>
 
           </div>
           <DrawerToggleButton className="valami" />

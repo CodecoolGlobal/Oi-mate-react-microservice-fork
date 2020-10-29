@@ -14,7 +14,7 @@ import styled from "styled-components";
 
 
 const DrawerToggleButtonDiv = styled.div`
-@media (min-width: 769px) {
+@media (min-width: 925px) {
   
     display: none;
   
@@ -89,11 +89,6 @@ const DrawerToggleButton = () => {
                                 {username}
                             </Link>
                         </div>
-                    <div className="menu-item">
-                        <Link className="link" to="/friend-news">
-                            News by friends
-                        </Link>
-                    </div>
                     <div className="menu-item">
                         <Link className="link" to={""} onClick={logOut}>
                             {/*<Tooltip title="Logout">*/}
